@@ -1,2 +1,70 @@
 # Quick-Show
 Quick-Show is a package that allows you to easily and quickly draw 2D or 3D t-SNE and pca plots using specific columns of a refined dataframe.
+- Quick Show(QS) is an abstraction of popular libraries such as sklearn and matplotlib, so it is very lightweight and convenient.
+
+`Note`: In this project, some modules of the NLP embedding visualization analysis project are separated and managed lightly for various purposes.
+
+<br>
+
+## Quick Start
+```bash
+pip install quickshow
+```
+<Br>
+
+## Function 
+It contains 3 functions: `vis_tsne2d`, `vis_tsne3d`, `vis_pca`
+- (1) `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding
+
+- (2) `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding
+
+- (3) `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA)
+
+
+All function returns the dataframe which used to plot. Thus, use the returned dataframe object to customize your plot. 
+
+Or use [matplotlib's rcparam](https://matplotlib.org/stable/tutorials/introductory/customizing.html) methods.
+<br><br>
+
+## Example Code
+- Create a scatter plot very quickly and easily by inputting a clean data frame and column names that do not have missing data. 
+- If the label column does not exist, simply enter None as an argument.
+```python
+from quickshow import *
+
+df = pd.DataFrame([3,2,3,2,3,3,1,1])
+df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
+
+# columns that use to make plot. (if you don't have label column, then fill None)
+df.columns = ['labels', 'values']
+
+
+#1. vis_tsne2d function
+return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
+
+#2. vis_tsne3d function
+return_df = vis_tsne3d(df, 'values', 'labels', False, 'fig2.png')
+
+#3. vis_pca function(2-dim)
+return_df = vis_pca(df, 'values', 'labels', 2, False, 'fig3.png')
+
+#4. vis_pca function(3-dim)
+return_df = vis_pca(df, 'values', 'labels', 3, False, 'fig4.png')
+```
+
+
+## Result Plot
+ <img src="./quickshow/readme_fig1.png" width="1000"><BR>
+  <img src="./quickshow/readme_fig2.png" width="1000"><BR>
+
+For more details, please check doc string.
+<br>
+<br>
+
+## References
+[1] sklearn.manifold.TSNE https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html
+<br>
+
+[2] sklearn.decomposition.PCA https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html <br>
+
+[3] matplotlib https://matplotlib.org/
