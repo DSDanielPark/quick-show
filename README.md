@@ -9,7 +9,8 @@
   ```cmd
   $ pip install quickshow
   ```
-  
+ 
+# Start Guide
   ## 1. Plots related to dimensionality reduction
   2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe.
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
