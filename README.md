@@ -1,8 +1,7 @@
 # Quick-Show
 - Quick-Show is a package that allows you to easily and quickly draw plots.
 - Quick Show is an abstraction using popular libraries such as sklearn and matplotlib, so it is very light and convenient.
-- `Note`: quich show is sub-modules of other packages to manage quickshow more lightly and use more widly.
-- 추가 업데이트 계획이 있으므로, 간단한 함수로 관리하며, 추가 배포 예정 레포의 서브 모듈로 사용함.
+- `Note`: quich show is sub-modules of other packages to manage quickshow more lightly and use more widly. 추가 업데이트 계획이 있으므로, 간단한 함수로 관리하며, 추가 배포 예정 레포의 서브 모듈로 사용함.
 <br>
 
 # Install
