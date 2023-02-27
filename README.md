@@ -1,25 +1,25 @@
 # Quick-Show
-- Quick-Show is a package that allows you to easily and quickly draw 2D or 3D t-SNE and pca plots using specific columns of a refined dataframe.
+- Quick-Show is a package that allows you to easily and quickly draw 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe.
 - Quick Show(QS) is an abstraction of popular libraries such as sklearn and matplotlib, so it is very lightweight and convenient.
 - `Note`: In this project, some modules of the NLP embedding visualization analysis project are separated and managed lightly for various purposes.
-
+- 추가 업데이트 계획이 있으므로, 간단한 함수로 관리함.
 <br>
 
 ## Quick Start
   ```cmd
-  $pip install quickshow
+  $ pip install quickshow
   ```
-- Create a scatter plot very quickly and easily by inputting a clean data frame and column names that do not have missing data. 
+- Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
   ```python
   from quickshow import *
 
-  # make sample df
+  # Make sample df
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
   df.columns = ['labels', 'values']
 
-  # use matplotlib rcparams or returned dataframe for customize your plot.
+  # Use matplotlib rcparams or returned dataframe for customize your plot.
   return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
   return_df = vis_tsne3d(df, 'values', 'labels', False, 'fig2.png')
   return_df = vis_pca(df, 'values', 'labels', 2, False, 'fig3.png')
