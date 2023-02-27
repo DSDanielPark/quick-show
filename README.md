@@ -22,7 +22,7 @@
   df.columns = ['labels', 'values']
   
   print(df)
-  >>>   labels	|   values
+  >>>   label   |   values
   >>>   3       |   [8425, 8023, 2019]
   >>>   2       |   [2882, 9648, 7853]
   >>>   2       |   6828, 6895, 2220]
