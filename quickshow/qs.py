@@ -47,10 +47,12 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     """
     data_subset = df[target_col].values
     raveled_data_subset = [x.ravel() for x in data_subset]
+
     tsne = TSNE(n_components=2, verbose=10, perplexity=3, n_iter=500)
     df_tsne_2d = tsne.fit_transform(raveled_data_subset)
     df['tsne-2d-1'] = df_tsne_2d[:,0]
     df['tsne-2d-2'] = df_tsne_2d[:,1]
+    
     sns.scatterplot(
         x="tsne-2d-1", y="tsne-2d-2",
         hue=label_col,
@@ -60,8 +62,8 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
         alpha=0.3
     )
     if save_plot_path is not None:
+        plt.show()
         plt.savefig(save_plot_path, bbox_inches='tight')
-
     if show_plot:
         plt.show()
     plt.clf()
@@ -91,11 +93,13 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     """
     data_subset = df[target_col].values
     raveled_data_subset = [x.ravel() for x in data_subset]
+
     tsne = TSNE(n_components=3, verbose=10, perplexity=3, n_iter=300)
     df_tsne_3d = tsne.fit_transform(raveled_data_subset)
     df['tsne-3d-1'] = df_tsne_3d[:,0]
     df['tsne-3d-2'] = df_tsne_3d[:,1]
     df['tsne-3d-3'] = df_tsne_3d[:,2]
+
     x, y, z = df['tsne-3d-1'], df['tsne-3d-2'], df['tsne-3d-3']
     ax = plt.axes(projection ="3d")
     ax.scatter3D(x, y, z)
@@ -112,7 +116,9 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     # ax.set(xlim=(-150, 30))
     # ax.set(zlim=(-200, 50))
     ax.legend()
+
     if save_plot_path is not None:
+        plt.show()
         plt.savefig(save_plot_path, bbox_inches='tight')
     if show_plot:
         plt.show()
@@ -145,6 +151,7 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
     """
     data_subset = df[target_col].values
     raveled_data_subset = [x.ravel() for x in data_subset]
+
     pca = PCA(n_components=3)
     pca_result = pca.fit_transform(raveled_data_subset)
     df['PC1'] = pca_result[:,0]
@@ -166,9 +173,7 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
     elif pca_dim == 3:
         ax = plt.figure(figsize=(10,10)).gca(projection='3d')
         if label_col is None:
-            ax.scatter(df['PC1'], 
-                        df['pa-2'], 
-                        df['PC3']) 
+            ax.scatter(df['PC1'], df['pa-2'], df['PC3']) 
         else:
             for s in df[label_col].unique():
                 ax.scatter(df['PC1'][df[label_col]==s], 
@@ -180,6 +185,7 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
         ax.set_ylabel('PC2')
         ax.set_zlabel('PC3')
         if save_plot_path is not None:
+            plt.show()
             plt.savefig(save_plot_path, bbox_inches='tight')
     if show_plot:
         plt.show()

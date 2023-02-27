@@ -26,8 +26,8 @@
   return_df = vis_pca(df, 'values', 'labels', 3, False, 'fig4.png')
   ```
 
-  <img src="./quickshow/output/readme_fig1.png" width="500"><BR>
-  <img src="./quickshow/output/readme_fig2.png" width="500"><BR>
+  <img src="https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png" width="500"><BR>
+  <img src="https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png" width="500"><BR>
   - For more details, please check doc string.
 <br>
 <br>
