@@ -35,8 +35,6 @@
   <img src="https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png" width="500"><BR> -->
   - For more details, please check doc string.
 <br>
-<br>
-
 
 ## Functions
 It contains 3 functions: `vis_tsne2d`, `vis_tsne3d`, `vis_pca`
