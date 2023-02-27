@@ -9,6 +9,8 @@
   ```cmd
   $ pip install quickshow
   ```
+  
+  ## 1. Plots related to dimensionality reduction
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
   ```python
