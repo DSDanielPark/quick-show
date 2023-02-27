@@ -9,6 +9,7 @@
   ```cmd
   $ pip install quickshow
   ```
+<br>
  
 # Guide
   ## 1. Plots related to dimensionality reduction
