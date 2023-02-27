@@ -5,7 +5,7 @@
 - 추가 업데이트 계획이 있으므로, 간단한 함수로 관리하며, 추가 배포 예정 레포의 서브 모듈로 사용함.
 <br>
 
-# Install Quick-Show
+# Install
   ```cmd
   $ pip install quickshow
   ```
