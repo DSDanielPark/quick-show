@@ -5,7 +5,7 @@
 - 추가 업데이트 계획이 있으므로, 간단한 함수로 관리하며, 추가 배포 예정 레포의 서브 모듈로 사용함.
 <br>
 
-## Quick Start
+# Quick Start
   ```cmd
   $ pip install quickshow
   ```
@@ -44,7 +44,8 @@
   - For more details, please check doc string.
 <br>
 
-## Functions
+# Functions
+## About 1. Plots related to dimensionality reduction
 It contains 3 functions: `vis_tsne2d`, `vis_tsne3d`, `vis_pca`
 - (1) `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding
 - (2) `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding
@@ -56,7 +57,7 @@ All function returns the dataframe which used to plot. Thus, use the returned da
 <br>
 
 
-## References
+# References
 [1] sklearn.manifold.TSNE https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html <br>
 [2] sklearn.decomposition.PCA https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html <br>
 [3] matplotlib https://matplotlib.org/
