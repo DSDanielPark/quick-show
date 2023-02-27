@@ -14,12 +14,12 @@
   ```python
   from quickshow import *
 
-  # make sample df
+  # Make sample df
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
   df.columns = ['labels', 'values']
 
-  # use matplotlib rcparams or returned dataframe for customize your plot.
+  # Use matplotlib rcparams or returned dataframe for customize your plot.
   return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
   return_df = vis_tsne3d(df, 'values', 'labels', False, 'fig2.png')
   return_df = vis_pca(df, 'values', 'labels', 2, False, 'fig3.png')
