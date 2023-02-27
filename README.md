@@ -12,7 +12,7 @@
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
   ```python
-  from quickshow import *
+  from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
 
   # Make sample df
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
