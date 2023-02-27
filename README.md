@@ -12,7 +12,7 @@
 <br>
  
 # Guide
-  ## 1. Plots related to dimensionality reduction
+  ### 1. Plots related to dimensionality reduction
   2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe.
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
@@ -32,7 +32,7 @@
   ...
   >>>   1       |   [5551, 8079, 69]
 
-  # Use matplotlib rcparams or returned dataframe for customize your plot.
+  # Use matplotlib rc.params or returned pd.dataframe object for customizing plot design.
   return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
   return_df = vis_tsne3d(df, 'values', 'labels', False, 'fig2.png')
   return_df = vis_pca(df, 'values', 'labels', 2, False, 'fig3.png')
@@ -48,7 +48,7 @@
 <br>
 
 # Functions
-## About 1. Plots related to dimensionality reduction
+### About 1. Plots related to dimensionality reduction
 It contains 3 functions: `vis_tsne2d`, `vis_tsne3d`, `vis_pca`
 - (1) `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding
 - (2) `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding
