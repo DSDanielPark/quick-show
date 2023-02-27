@@ -22,13 +22,12 @@
   df.columns = ['labels', 'values']
   
   print(df)
-  >>> pd.DataFrame
-  >>> labels	|   values
-  >>> 3	      |   [8425, 8023, 2019]
-  >>> 2	      |   [2882, 9648, 7853]
-  >>> 2	      |   6828, 6895, 2220]
+  >>>   labels	|   values
+  >>>   3       |   [8425, 8023, 2019]
+  >>>   2       |   [2882, 9648, 7853]
+  >>>   2       |   6828, 6895, 2220]
   ...
-  >>> 1     	|   [5551, 8079, 69]
+  >>>   1       |   [5551, 8079, 69]
 
   # Use matplotlib rcparams or returned dataframe for customize your plot.
   return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
