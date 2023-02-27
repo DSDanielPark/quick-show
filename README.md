@@ -20,6 +20,15 @@
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
   df.columns = ['labels', 'values']
+  
+  print(df)
+  >>> pd.DataFrame
+  >>> labels	|   values
+  >>> 3	      |   [8425, 8023, 2019]
+  >>> 2	      |   [2882, 9648, 7853]
+  >>> 2	      |   6828, 6895, 2220]
+  ...
+  >>> 1     	|   [5551, 8079, 69]
 
   # Use matplotlib rcparams or returned dataframe for customize your plot.
   return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
