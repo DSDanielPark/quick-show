@@ -2,7 +2,7 @@
 - Quick-Show is a package that allows you to easily and quickly draw 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe.
 - Quick Show(QS) is an abstraction of popular libraries such as sklearn and matplotlib, so it is very lightweight and convenient.
 - `Note`: In this project, some modules of the NLP embedding visualization analysis project are separated and managed lightly for various purposes.
-- 추가 업데이트 계획이 있으므로, 간단한 함수로 관리함.
+- 추가 업데이트 계획이 있으므로, 간단한 함수로 관리하며, 추가 배포 예정 레포의 서브 모듈로 사용함.
 <br>
 
 ## Quick Start
