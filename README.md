@@ -16,7 +16,7 @@
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
   ```
-  # Make dataframe for example
+  # Make dataframe for example.
   import pandas as pd
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
