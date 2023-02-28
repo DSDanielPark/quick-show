@@ -16,9 +16,8 @@
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
   ```python
-  from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
-
   # Make sample df
+  import pandas as pd
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
   df.columns = ['labels', 'values']
@@ -27,10 +26,12 @@
   >>>   label   |   values
   >>>   3       |   [8425, 8023, 2019]
   >>>   2       |   [2882, 9648, 7853]
-  >>>   2       |   6828, 6895, 2220]
   ...
   >>>   1       |   [5551, 8079, 69]
-
+  ```
+  
+  ```
+  from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
   # Use matplotlib rc.params or returned pd.dataframe object for customizing plot design.
   return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
   return_df = vis_tsne3d(df, 'values', 'labels', False, 'fig2.png')
