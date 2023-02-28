@@ -28,8 +28,7 @@ plt.rcParams['lines.linewidth'] = 3
 def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a 2d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
 
-    Example code :
-    
+    Example code:
     return_df = vis_tsne2d(embedded_df, 'target_col_embedding', 'category', True, './result/fig1.png')
     return_df = vis_tsne2d(input_df, 'token_array', 'bin_number', False, None)
 
@@ -74,7 +73,7 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
 def vis_tsne3d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a 3d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
 
-    Example code :
+    Example code:
     qs = QuickShow()
     return_df = qs.vis_tsne3d(embedded_df, 'target_col_embedding', 'category', True, './result/fig1.png')
     return_df = qs.vis_tsne3d(input_df, 'token_array', 'bin_number', False, None)
