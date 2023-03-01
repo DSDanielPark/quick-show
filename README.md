@@ -15,6 +15,7 @@
   2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe.
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
+
   ```
   # Make dataframe for example.
   import pandas as pd
