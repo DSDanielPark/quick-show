@@ -23,12 +23,12 @@
   df.columns = ['labels', 'values']
   
   print(df)
+  ```
   >>>   label   |   values
   >>>   3       |   [8425, 8023, 2019]
   >>>   2       |   [2882, 9648, 7853]
   ...
   >>>   1       |   [5551, 8079, 69]
-  ```
   
   ```python
   from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
