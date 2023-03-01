@@ -29,18 +29,18 @@
   >>>   1       |   [5551, 8079, 69]
   ```
 
-```python
-  from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
-  # If you want to change plot design, use matplotlib rc.params or returned pd.dataframe object.
-  return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
-  return_df = vis_tsne3d(df, 'values', 'labels', False, 'fig2.png')
-  return_df = vis_pca(df, 'values', 'labels', 2, False, 'fig3.png')
-  return_df = vis_pca(df, 'values', 'labels', 3, False, 'fig4.png')
-  ```
-  
-  ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png)
-  ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png)
-  
+  ```python
+    from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
+    # If you want to change plot design, use matplotlib rc.params or returned pd.dataframe object.
+    return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
+    return_df = vis_tsne3d(df, 'values', 'labels', False, 'fig2.png')
+    return_df = vis_pca(df, 'values', 'labels', 2, False, 'fig3.png')
+    return_df = vis_pca(df, 'values', 'labels', 3, False, 'fig4.png')
+    ```
+
+    ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png)
+    ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png)
+
   <!-- <img src="https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png" width="500"><BR>
   <img src="https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png" width="500"><BR> -->
   - For more details, please check doc string.
