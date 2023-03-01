@@ -15,23 +15,20 @@
   2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe.
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 - If the label column does not exist, simply enter `None` as an argument.
-  ```python
+  ```
   # Make dataframe for example.
   import pandas as pd
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
   df.columns = ['labels', 'values']
-  
   print(df)
-  ```
-  ```
   >>>   label   |   values
   >>>   3       |   [8425, 8023, 2019]
-  >>>   2       |   [2882, 9648, 7853]
   ...
   >>>   1       |   [5551, 8079, 69]
   ```
-  ```python
+
+```python
   from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
   # If you want to change plot design, use matplotlib rc.params or returned pd.dataframe object.
   return_df = vis_tsne2d(df, 'values', 'labels', False, 'fig1.png')
