@@ -18,6 +18,8 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from mpl_toolkits import mplot3d
 from mpl_toolkits.mplot3d import Axes3D
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
 plt.rcParams["figure.figsize"] = (7,7)
 plt.rcParams['lines.linewidth'] = 3
@@ -193,4 +195,25 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
     return df
 
 
+def vis_cm(df, label_col, predicted_col, save_path):
+    y_true = df[label_col]
+    y_pred = df[predicted_col]
+    classes = y_true.unique()
+    try:
+        confusion_report = classification_report(y_true, y_pred, output_dict=True)
+        df_cr = pd.DataFrame(confusion_report)
+    except Exception as e:
+        print(e)
+    cm = confusion_matrix(df[label_col], df[predicted_col])
 
+    plt.title("Confusion Metirx: True Label vs Predicted Label", fontsize =13, pad=20)
+    sns.set_style("dark")
+    ax = sns.heatmap(cm, cmap="crest", fmt=".3g", annot=True, xticklabels=classes, yticklabels=classes)
+    ax.set(xlabel='common xlabel', ylabel='common ylabel')
+    plt.xlabel("Predicted", labelpad=20)
+    plt.ylabel("True Label", labelpad=20)
+    plt.show()
+    plt.savefig(save_path, dpi=300, bbox_inches = "tight")
+    plt.clf()
+    
+    return df_cr, cm
