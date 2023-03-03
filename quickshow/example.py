@@ -1,4 +1,4 @@
-from qs import *
+from reduce_dim import *
 import pandas as pd
 import numpy as np
 

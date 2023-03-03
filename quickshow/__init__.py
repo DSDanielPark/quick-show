@@ -1,4 +1,4 @@
-from .qs import *
+from .reduce_dim import *
 
 __all__ = ["vis_tsne2d", "vis_tsne3d", "vis_pca"]
 

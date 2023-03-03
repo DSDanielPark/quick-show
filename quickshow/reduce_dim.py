@@ -24,6 +24,10 @@ from mpl_toolkits.mplot3d import Axes3D
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from utils import *
+from matplotlib.pyplot import figure
+import matplotlib.pyplot as plt
+import matplotlib.legend as legend
+
 
 plt.rcParams["figure.figsize"] = (7,7)
 plt.rcParams['lines.linewidth'] = 3
@@ -197,58 +201,4 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
     plt.clf()
 
     return df
-
-
-
-def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_cr_csv_path: str, save_cmplot_path: str):
-    """Create a heatmap using predicted column, ground truth label column.
-    cr == classification report
-    cm == confusion matrix
-
-    Example code :
-    df_cr, cm = vis_cm(df, 'real', 'predicted', './csv/exp1_cm.csv, './result/cm.png')
-    vis_cm(df, 'ground_truth', 'predicted_y', None, None)
-
-    Parameters
-    ----------
-    df : pd.DataFrame 
-        pd.Dataframe object includes true label column and predicted_label column. 
-    true_label_col : str
-        column name which has ground_truth_labels.
-    predicted_col : str
-        column name which has predicted labels.
-    save_cr_csv_path: str
-        if you want to save df_cr, enter the full path. ('./result/df_cr.csv', or enter None)
-    save_cmplot_path: str
-        if you want to save cmplot image, enter the full path. ('./fig/cm.png' or enter None)
-    """
-    y_true = df[true_label_col]
-    y_pred = df[predicted_col]
-    classes = y_true.unique()
-    try:
-        cr = classification_report(y_true, y_pred, output_dict=True) # create classification report
-        df_cr = pd.DataFrame(cr)
-    except Exception as e:
-        print(e)
-    if save_cr_csv_path is not None:
-        df_cr.to_csv(save_cr_csv_path, encoding='utf-8-sig', index=False) 
-
-    try:
-        cm = confusion_matrix(df[true_label_col], df[predicted_col])
-    except Exception as e: 
-        print(e)
-
-    plt.title("Confusion Metirx: True Label vs Predicted Label", fontsize =13, pad=20)
-    sns.set_style("dark")
-    ax = sns.heatmap(cm, cmap="crest", fmt=".3g", annot=True, xticklabels=classes, yticklabels=classes)
-    ax.set(xlabel='common xlabel', ylabel='common ylabel')
-    plt.xlabel("Predicted", labelpad=10)
-    plt.ylabel("True Label", labelpad=10)
-    plt.show()
-    if save_cmplot_path is not None:
-        plt.savefig(save_cmplot_path, dpi=300, bbox_inches = "tight")
-    plt.clf()
-    
-    return df_cr, cm
-
 
