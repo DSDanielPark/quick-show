@@ -63,3 +63,8 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 [1] sklearn.manifold.TSNE https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html <br>
 [2] sklearn.decomposition.PCA https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html <br>
 [3] matplotlib https://matplotlib.org/
+<br>
+
+## Contacts
+Project Owner(P.O): [Daniel Park, South Korea](https://github.com/DSDanielPark) 
+e-mail parkminwoo1991@gmail.com
