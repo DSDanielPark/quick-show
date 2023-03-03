@@ -1,23 +1,15 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.decomposition import PCA
-from sklearn.manifold import TSNE
-from mpl_toolkits import mplot3d
-from mpl_toolkits.mplot3d import Axes3D
+from utils import find_all_files
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from utils import *
-from matplotlib.pyplot import figure
-import matplotlib.pyplot as plt
-import matplotlib.legend as legend
 
 
 plt.rcParams["figure.figsize"] = (7,7)
 plt.rcParams['lines.linewidth'] = 3
 # plt.rcParams['axes.grid'] = True 
 # plt.rcParams['axes.facecolor'] = 'gray'
-
 
 
 def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_cr_csv_path: str, save_cmplot_path: str):
@@ -76,24 +68,24 @@ def get_total_cr_df(cm_csv_folder_path, include_word, save_path):
     metric_df_list = find_all_files(cm_csv_folder_path, include_word)
     for i in range(len(metric_df_list)):
         if i == 0:
-            df_total = pd.read_csv(metric_df_list[i])
+            total_cr_df = pd.read_csv(metric_df_list[i])
             exp_name = metric_df_list[i].split('\\')[-1].split('_')[0]
-            df_total['exp'] = exp_name
+            total_cr_df['exp'] = exp_name
         else:
             exp_name = metric_df_list[i].split('\\')[-1].split('_')[0]
             df = pd.read_csv(metric_df_list[i])
             df['exp'] = exp_name
-            df_total = pd.concat([df, df_total], ignore_index=True, axis=0)
-    df_total['exp'] = [int(x.lstrip('exp')) for x in df_total['exp']]
+            total_cr_df = pd.concat([df, total_cr_df], ignore_index=True, axis=0)
+    total_cr_df['exp'] = [int(x.lstrip('exp')) for x in total_cr_df['exp']]
 
     if save_path is not None:
-        df_total.to_csv(save_path, index=False, encoding='utf-8-sig')
-    df_total.rename(columns = {'Unnamed: 0' : 'metric'}, inplace = True)
+        total_cr_df.to_csv(save_path, index=False, encoding='utf-8-sig')
+    total_cr_df.rename(columns = {'Unnamed: 0' : 'metric'}, inplace = True)
 
-    return df_total
+    return total_cr_df
 
 
-def show_multi_plot(df, which_metirc, except_col, save_path):
+def vis_multi_plot(df, which_metirc, except_col, save_path):
     plt.rcParams["figure.figsize"] = (10,10)
     plt.style.use('tableau-colorblind10')
     plt.close()
