@@ -19,13 +19,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
-import matplotlib.pyplot as plt
-
-
-plt.rcParams["figure.figsize"] = (7,7)
-plt.rcParams['lines.linewidth'] = 3
-# plt.rcParams['axes.grid'] = True 
-# plt.rcParams['axes.facecolor'] = 'gray'
 
 
 def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
