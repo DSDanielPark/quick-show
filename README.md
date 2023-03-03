@@ -4,6 +4,7 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-green.svg)](code_of_conduct.md)
 [![Python Version](https://img.shields.io/badge/python-3.6%2C3.7%2C3.8-blue.svg)](code_of_conduct.md)
 ![Pypi Version](https://img.shields.io/pypi/v/quickshow.svg)
+![Code convention](https://img.shields.io/badge/code%20convention-pep8-violet)
 
 Quick-Show is a package that allows you to easily and quickly draw plots. <br>
 Quick Show is an abstraction using popular libraries such as sklearn and matplotlib, so it is very light and convenient. <br><br>
