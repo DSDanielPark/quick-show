@@ -41,13 +41,17 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
   df.columns = ['labels', 'values']
-  
   print(df)
-  >>>   label   |   values
-  >>>   3       |   [8425, 8023, 2019]
-  ...
-  >>>   1       |   [5551, 8079, 69]
   ```
+
+  |    |   labels | values           |
+  |---:|---------:|:-----------------|
+  |  0 |        3 | [8231 3320 6894] |
+  |  1 |        2 | [3485    7 7374] |
+  |  ... |        ... |... |
+  |  6 |        1 | [5218 9846 2488] |
+  |  7 |        1 | [6661 5105  136] |
+
   </details>
 
   ```python
@@ -96,24 +100,40 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
   df = pd.DataFrame([label_list[np.random.randint(4)] for _ in range(num_rows)], columns=['real'])
   df['predicted'] = [label_list[np.random.randint(4)] for _ in range(num_rows)]  
   print(df)
-  >>>   real	|  predicted
-  >>>   dog	  |  hores
-  >>>   ...
-  >>>   hores |	hores
   ```
+
+  |     | real    | predicted   |
+  |----:|:--------|:------------|
+  |   0 | cat     | cat         |
+  |   1 | horse   | cat         |
+  | ... | ...     | ...         |
+  |   7 | horse   | dog         |
+  | 299 | dorphin | horse       |
+
   </details>
 
   ```python
   from quickshow import vis_cm
 
-  df_cr, cm = vis_cm(df, 'real', 'predicted', './result/heatmap_of_confusion_matrix.png')
+  df_cr, cm = vis_cm(df, 'real', 'predicted', 'vis_cm.csv', 'vis_cm.png')
   ```
 
   <details>
-  <summary> See output figure... </summary>
+  <summary> See output... </summary>
 
-  ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png)
-  ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png)
+  ```python
+  print(df_cr)
+  ```
+  |           |       cat |       dog |   dorphin |     horse |   accuracy |   macro avg |   weighted avg |
+  |:----------|----------:|----------:|----------:|----------:|-----------:|------------:|---------------:|
+  | precision |  0.304878 |  0.344828 |  0.285714 |  0.276316 |        0.3 |    0.302934 |       0.304337 |
+  | recall    |  0.328947 |  0.246914 |  0.328767 |  0.3      |        0.3 |    0.301157 |       0.3      |
+  | f1-score  |  0.316456 |  0.28777  |  0.305732 |  0.287671 |        0.3 |    0.299407 |       0.299385 |
+  | support   | 76        | 81        | 73        | 70        |        0.3 |  300        |     300        |
+
+
+  confusion matirx will be shown as below.
+  ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig3.png)
 
   - This function return pandas.DataFrame obejct of classification report and confusion metix as shown below.
   
