@@ -1,7 +1,8 @@
 # Quick-Show
 - Quick-Show is a package that allows you to easily and quickly draw plots.
 - Quick Show is an abstraction using popular libraries such as sklearn and matplotlib, so it is very light and convenient.
-- `Note`: quich show is sub-modules of other packages to manage quickshow more lightly and use more widly. 추가 업데이트 계획이 있으므로, 간단한 함수로 관리하며, 추가 배포 예정 레포의 서브 모듈로 사용함.
+- `Note`: Quick-Show is sub-modules of other packages to manage quickshow more lightly and use more widly. 
+This is a project under development as a submodule. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is not recommended to use prior to major version 1.
 <br>
 
 # Install
@@ -14,6 +15,12 @@
   ### 1. Plots related to dimensionality reduction
   2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe.
 - Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
+Functions
+It contains 3 functions: `vis_tsne2d`, `vis_tsne3d`, `vis_pca`
+  1. `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding
+  2. `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding
+  3. `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA)
+- All function returns the dataframe which used to plot. Thus, use the returned dataframe object to customize your plot. Or use [matplotlib's rcparam](https://matplotlib.org/stable/tutorials/introductory/customizing.html) methods.
 - If the label column does not exist, simply enter `None` as an argument.
 
   ```
@@ -45,13 +52,6 @@
   <img src="https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png" width="500"><BR> -->
   - For more details, please check doc string.
 <br>
-
-# Functions
-### About 1. Plots related to dimensionality reduction
-It contains 3 functions: `vis_tsne2d`, `vis_tsne3d`, `vis_pca`
-- (1) `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding
-- (2) `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding
-- (3) `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA)
 
 
 All function returns the dataframe which used to plot. Thus, use the returned dataframe object to customize your plot. Or use [matplotlib's rcparam](https://matplotlib.org/stable/tutorials/introductory/customizing.html) methods.
