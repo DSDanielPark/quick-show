@@ -1,7 +1,7 @@
 
 # Quick-Show
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-green.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-v2.0%20adopted-green.svg)](code_of_conduct.md)
 [![Python Version](https://img.shields.io/badge/python-3.6%2C3.7%2C3.8-blue.svg)](code_of_conduct.md)
 ![Pypi Version](https://img.shields.io/pypi/v/quickshow.svg)
 ![Code convention](https://img.shields.io/badge/code%20convention-pep8-violet)
