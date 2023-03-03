@@ -1,15 +1,9 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from utils import find_all_files
+from quickshow.utils import find_all_files
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-
-
-plt.rcParams["figure.figsize"] = (7,7)
-plt.rcParams['lines.linewidth'] = 3
-# plt.rcParams['axes.grid'] = True 
-# plt.rcParams['axes.facecolor'] = 'gray'
 
 
 def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_cr_csv_path: str, save_cmplot_path: str):
@@ -86,13 +80,11 @@ def get_total_cr_df(cm_csv_folder_path, include_word, save_path):
 
 
 def vis_multi_plot(df, which_metirc, except_col, save_path):
-    plt.rcParams["figure.figsize"] = (10,10)
-    plt.style.use('tableau-colorblind10')
-    plt.close()
     df = df[df['metric'] == which_metirc]
+    df = df.sort_values(by='exp' ,ascending=False)
     for i, col in enumerate(df.columns):
         if col not in except_col:
-            plt.plot(df.exp, df[col], '-o', label=col)
+            plt.plot(df.exp, df[col], '-o', label=col, linewidth=1)
             plt.legend(loc="lower right")
         plt.grid(color='gray', linewidth=1)
         plt.legend
@@ -102,3 +94,5 @@ def vis_multi_plot(df, which_metirc, except_col, save_path):
     plt.show()
     if save_path is not None:
         plt.savefig(save_path ,dpi=300, bbox_inches = "tight")
+
+    return df
