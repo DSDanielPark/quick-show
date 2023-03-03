@@ -19,14 +19,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
-from mpl_toolkits import mplot3d
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-from utils import *
-from matplotlib.pyplot import figure
 import matplotlib.pyplot as plt
-import matplotlib.legend as legend
 
 
 plt.rcParams["figure.figsize"] = (7,7)
