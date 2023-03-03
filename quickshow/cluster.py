@@ -6,7 +6,7 @@ sns.set()  # use Seaborn styles
 plt.rcParams["figure.figsize"] = (16,10)
 
 
-def cluster_plot(df, cluster_col, label_col, save_path):
+def vis_cluster_plot(df, cluster_col, label_col, save_path):
     bin_list = [0]
     total = 0
     for i in range(16):
@@ -15,7 +15,7 @@ def cluster_plot(df, cluster_col, label_col, save_path):
         bin_list.append(total-1)
     df_pivot =df.pivot_table(index=[cluster_col, label_col], columns=label_col, aggfunc='size', fill_value=0)
     df_pivot.plot()
-    
+
     plt.ylabel('Count of ground truth category', fontsize=20)
     plt.xlabel('Cluster bin', fontsize=20)
     plt.tick_params(
