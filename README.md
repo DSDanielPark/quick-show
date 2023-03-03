@@ -19,19 +19,36 @@ Quick Show is an abstraction using popular libraries such as sklearn and matplot
   ```
 <br>
  
-# Guide
+# Features
 ## 1  Plots related to dimensionality reduction
 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe. 
 Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
-<br>
-
-### 1.1 Functions <br>
-
 1) `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
 2) `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
-3) `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) <br><br>
+3) `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) 
 
-### 1.2 Example <br>
+<br>
+
+## 2  Plots related to classification model evaluation. 
+1) `vis_cm` function: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
+2) `get_total_cr_df` function
+3) `vis_multi_plot` function
+
+<br>
+
+
+## 3  Plots related to clustering. 
+1) `vis_cluster_plot` function: <br>
+
+<br>
+
+## 4  Utils 
+1) `find_all_files` function: <br>
+
+<br><br><Br><Br><Br>
+
+# Examples
+## Feature 1  <br>
   <details>
   <summary> See example dataframe... </summary>
 
@@ -75,29 +92,13 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
   </details>
 <br>
 
-
-
-
-
-
-## 2  Plots related to classification model evaluation. 
-
-<br>
-
-### 2.1 Functions <br>
-
-1) `vis_cm` function: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
-
-### 2.2 Examples <br><br>
-
-  `vis_cm`
-  
+## Feature 2 
   <details>
   <summary> See example dataframe... </summary>
 
   ```python
   import pandas as pd
-  label_list, num_rows = ['cat', 'dog', 'hores', 'dorphin'], 300
+  label_list, num_rows = ['cat', 'dog', 'horse', 'dorphin'], 300
   df = pd.DataFrame([label_list[np.random.randint(4)] for _ in range(num_rows)], columns=['real'])
   df['predicted'] = [label_list[np.random.randint(4)] for _ in range(num_rows)]  
   print(df)
