@@ -52,11 +52,17 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
   return_df = vis_pca(df, 'values', 'labels', 3, True, './save/fig4.png')
   ```
 
+  <details>
+  <summary> See output figure... </summary>
+
   ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png)
   ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png)
+
   - All function returns the dataframe which used to plot. Thus, use the returned dataframe object to customize your plot. Or use [matplotlib's rcparam](https://matplotlib.org/stable/tutorials/introductory/customizing.html) methods.
   - If the label column does not exist, simply enter `None` as an argument.
   - For more details, please check doc string.
+  
+  </details>
 <br>
 
 
