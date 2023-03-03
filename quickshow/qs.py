@@ -217,8 +217,10 @@ def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_cr_cs
         column name which has ground_truth_labels.
     predicted_col : str
         column name which has predicted labels.
-    save_plot_path: str
-        Enter the full path to save result image. (or enter None)
+    save_cr_csv_path: str
+        if you want to save df_cr, enter the full path. ('./result/df_cr.csv', or enter None)
+    save_cmplot_path: str
+        if you want to save cmplot image, enter the full path. ('./fig/cm.png' or enter None)
     """
     y_true = df[true_label_col]
     y_pred = df[predicted_col]
@@ -248,3 +250,5 @@ def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_cr_cs
     plt.clf()
     
     return df_cr, cm
+
+
