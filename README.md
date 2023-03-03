@@ -20,7 +20,7 @@ Quick Show is an abstraction using popular libraries such as sklearn and matplot
 <br>
  
 # Guide
-## 1. Plots related to dimensionality reduction
+## 1  Plots related to dimensionality reduction
 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe. 
 Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 <br>
@@ -32,7 +32,6 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 3) `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) <br><br>
 
 ### 1.2 Example <br>
-
   <details>
   <summary> See example dataframe... </summary>
 
@@ -81,7 +80,7 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 
 
 
-## 2. Plots related to classification model evaluation. 
+## 2  Plots related to classification model evaluation. 
 
 <br>
 
@@ -89,8 +88,10 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 
 1) `vis_cm` function: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
 
-### 1.2 Example <br>
+### 2.2 Examples <br><br>
 
+  `vis_cm`
+  
   <details>
   <summary> See example dataframe... </summary>
 
