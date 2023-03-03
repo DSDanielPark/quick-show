@@ -26,9 +26,9 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 
 ### 1.1 Functions <br>
 
-1. `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
-2. `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
-3. `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) <br><br>
+1) `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
+2) `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
+3) `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) <br><br>
 
 ### 1.2 Example <br>
 
