@@ -23,6 +23,7 @@ from mpl_toolkits import mplot3d
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
+from utils import *
 
 plt.rcParams["figure.figsize"] = (7,7)
 plt.rcParams['lines.linewidth'] = 3
@@ -199,14 +200,14 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
 
 
 
-def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_plot_path: str):
+def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_cr_csv_path: str, save_cmplot_path: str):
     """Create a heatmap using predicted column, ground truth label column.
     cr == classification report
     cm == confusion matrix
 
     Example code :
-    df_cr, cm = vis_cm(df, 'real', 'predicted', './result/heatmap_of_confusion_matrix.png')
-    vis_cm(df, 'ground_truth', 'predicted_y', None)
+    df_cr, cm = vis_cm(df, 'real', 'predicted', './csv/exp1_cm.csv, './result/cm.png')
+    vis_cm(df, 'ground_truth', 'predicted_y', None, None)
 
     Parameters
     ----------
@@ -227,7 +228,9 @@ def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_plot_
         df_cr = pd.DataFrame(cr)
     except Exception as e:
         print(e)
-    
+    if save_cr_csv_path is not None:
+        df_cr.to_csv(save_cr_csv_path, encoding='utf-8-sig', index=False) 
+
     try:
         cm = confusion_matrix(df[true_label_col], df[predicted_col])
     except Exception as e: 
@@ -240,8 +243,8 @@ def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_plot_
     plt.xlabel("Predicted", labelpad=10)
     plt.ylabel("True Label", labelpad=10)
     plt.show()
-    if save_plot_path is not None:
-        plt.savefig(save_plot_path, dpi=300, bbox_inches = "tight")
+    if save_cmplot_path is not None:
+        plt.savefig(save_cmplot_path, dpi=300, bbox_inches = "tight")
     plt.clf()
     
     return df_cr, cm
