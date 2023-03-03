@@ -1,7 +1,13 @@
+
 # Quick-Show
-- Quick-Show is a package that allows you to easily and quickly draw plots.
-- Quick Show is an abstraction using popular libraries such as sklearn and matplotlib, so it is very light and convenient.
-- `Note`: Quick-Show is sub-modules of other packages to manage quickshow more lightly and use more widly. 
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+[![Python Version](https://img.shields.io/badge/python-3.6%2C3.7%2C3.8-blue.svg)](code_of_conduct.md)
+![Pypi Version](https://img.shields.io/pypi/v/gluonnlp.svg)
+
+Quick-Show is a package that allows you to easily and quickly draw plots. <br>
+Quick Show is an abstraction using popular libraries such as sklearn and matplotlib, so it is very light and convenient. <br><br>
+`Note`: Quick-Show is sub-modules of other packages to manage quickshow more lightly and use more widly. 
 *This is a project under development as a submodule. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.*
 
 <br>
@@ -76,6 +82,8 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 [3] matplotlib https://matplotlib.org/
 <br>
 
-## Contacts
+<br>
+
+### Contacts
 Project Owner(P.O): [Daniel Park, South Korea](https://github.com/DSDanielPark) 
 e-mail parkminwoo1991@gmail.com
