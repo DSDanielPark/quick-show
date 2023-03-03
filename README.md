@@ -13,7 +13,7 @@ Quick Show is an abstraction using popular libraries such as sklearn and matplot
 
 <br>
 
-# Install
+# Installation
   ```cmd
   $ pip install quickshow
   ```
