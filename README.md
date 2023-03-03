@@ -2,7 +2,7 @@
 - Quick-Show is a package that allows you to easily and quickly draw plots.
 - Quick Show is an abstraction using popular libraries such as sklearn and matplotlib, so it is very light and convenient.
 - `Note`: Quick-Show is sub-modules of other packages to manage quickshow more lightly and use more widly. 
-This is a project under development as a submodule. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.
+*This is a project under development as a submodule. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.*
 
 <br>
 
@@ -16,20 +16,25 @@ This is a project under development as a submodule. With the end of the project,
 ## 1. Plots related to dimensionality reduction
 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe. 
 Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
-<br><br>
+<br>
 
-  `Functions` <br>
-    1. `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
-    2. `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
-    3. `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) <br><br>
+### Functions <br>
+
+1. `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
+2. `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
+3. `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) <br><br>
+
+### Example <br>
 
   <details>
   <summary> See example dataframe... </summary>
-  ```
+
+  ```python
   import pandas as pd
   df = pd.DataFrame([3,2,3,2,3,3,1,1])
   df['val'] = [np.array([np.random.randint(0,10000),np.random.randint(0,10000),np.random.randint(0,10000)]) for x in df[0]]
   df.columns = ['labels', 'values']
+  
   print(df)
   >>>   label   |   values
   >>>   3       |   [8425, 8023, 2019]
