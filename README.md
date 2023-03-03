@@ -47,9 +47,9 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
   from quickshow import vis_tsne2d, vis_tsne3d, vis_pca
 
   return_df = vis_tsne2d(df, 'values', 'labels', True, './save/fig1.png')
-  return_df = vis_tsne3d(df, 'values', 'labels', True, './savefig2.png')
-  return_df = vis_pca(df, 'values', 'labels', 2, True, './savefig3.png')
-  return_df = vis_pca(df, 'values', 'labels', 3, True, './savefig4.png')
+  return_df = vis_tsne3d(df, 'values', 'labels', True, './save/fig2.png')
+  return_df = vis_pca(df, 'values', 'labels', 2, True, './save/fig3.png')
+  return_df = vis_pca(df, 'values', 'labels', 3, True, './save/fig4.png')
   ```
 
   ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png)
