@@ -73,15 +73,60 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 <br>
 
 
+
+
+
+
+## 2. Plots related to classification model evaluation. 
+
+<br>
+
+### 2.1 Functions <br>
+
+1) `vis_cm` function: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
+
+### 1.2 Example <br>
+
+  <details>
+  <summary> See example dataframe... </summary>
+
+  ```python
+  import pandas as pd
+  label_list, num_rows = ['cat', 'dog', 'hores', 'dorphin'], 300
+  df = pd.DataFrame([label_list[np.random.randint(4)] for _ in range(num_rows)], columns=['real'])
+  df['predicted'] = [label_list[np.random.randint(4)] for _ in range(num_rows)]  
+  print(df)
+  >>>   real	|  predicted
+  >>>   dog	  |  hores
+  >>>   ...
+  >>>   hores |	hores
+  ```
+  </details>
+
+  ```python
+  from quickshow import vis_cm
+
+  df_cr, cm = vis_cm(df, 'real', 'predicted', './result/heatmap_of_confusion_matrix.png')
+  ```
+
+  <details>
+  <summary> See output figure... </summary>
+
+  ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png)
+  ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png)
+
+  - This function return pandas.DataFrame obejct of classification report and confusion metix as shown below.
+  
+  </details>
+<br>
 <br>
 <br>
 
 
 
 # References
-[1] sklearn.manifold.TSNE https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html <br>
-[2] sklearn.decomposition.PCA https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html <br>
-[3] matplotlib https://matplotlib.org/
+[1] Scikit-Learn https://scikit-learn.org <br>
+[2] Matplotlib https://matplotlib.org/
 <br>
 
 <br>
