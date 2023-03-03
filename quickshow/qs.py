@@ -2,11 +2,14 @@
 A simple visualization class.
 Create and visualize dimensionally reduced pca and tsne columns through a specific column of clean dataframe.
 
+Abbreviation
 =========== ========================================================
 Shorthand    full name
 =========== ========================================================
 t-SNE        t-distributed Stochastic Neighbor Embedding
 PCA          Principal Component Analysis
+cr           classification report
+cm           confusion matrix
 =========== ========================================================
 """
 
@@ -27,7 +30,7 @@ plt.rcParams['lines.linewidth'] = 3
 # plt.rcParams['axes.facecolor'] = 'gray'
 
 
-def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
+def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a 2d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
 
     Example code:
@@ -37,10 +40,10 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     Parameters
     ----------
     df : pd.DataFrame 
-        Data frame with target_col and label_col. 
+        Data frame with target_col and true_label_col. 
     target_col : str
         Data column name to process pca included in data frame.
-    label_col : str
+    true_label_col : str
         Label column name to be used for visualization if target_col has different labels.
         Enter None if label is missing or identical. (`None` or `string of column name`)
     save_plot_path: str
@@ -56,8 +59,8 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     
     sns.scatterplot(
         x="tsne-2d-1", y="tsne-2d-2",
-        hue=label_col,
-        palette=sns.color_palette("Set2", len(df[label_col].unique())),
+        hue=true_label_col,
+        palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
         data=df,
         legend="full",
         alpha=0.3
@@ -72,7 +75,7 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     return df
 
 
-def vis_tsne3d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
+def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a 3d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
 
     Example code:
@@ -83,10 +86,10 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     Parameters
     ----------
     df : pd.DataFrame 
-        Data frame with target_col and label_col. 
+        Data frame with target_col and true_label_col. 
     target_col : str
         Data column name to process pca included in data frame.
-    label_col : str
+    true_label_col : str
         Label column name to be used for visualization if target_col has different labels.
         Enter None if label is missing or identical. (`None` or `string of column name`)
     save_plot_path: str
@@ -105,10 +108,10 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     ax = plt.axes(projection ="3d")
     ax.scatter3D(x, y, z)
     plt.title("T-SNE 3D")
-    for s in df[label_col].unique():
-        ax.scatter(df['tsne-3d-1'][df[label_col]==s], 
-                df['tsne-3d-2'][df[label_col]==s], 
-                df['tsne-3d-3'][df[label_col]==s], 
+    for s in df[true_label_col].unique():
+        ax.scatter(df['tsne-3d-1'][df[true_label_col]==s], 
+                df['tsne-3d-2'][df[true_label_col]==s], 
+                df['tsne-3d-3'][df[true_label_col]==s], 
                 label=s)
     ax.set_xlabel('tsne-3d-1')
     ax.set_ylabel('tsne-3d-2')
@@ -128,7 +131,7 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, label_col: str, show_plot: boo
     return df
         
 
-def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
+def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a pc columns through sklearn.decomposition and simply visualize it.
 
     Example code :
@@ -139,10 +142,10 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
     Parameters
     ----------
     df : pd.DataFrame 
-        Data frame with target_col and label_col. 
+        Data frame with target_col and true_label_col. 
     target_col : str
         Data column name to process pca included in data frame.
-    label_col : str
+    true_label_col : str
         Label column name to be used for visualization if target_col has different labels.
         Enter None if label is missing or identical. (`None` or `string of column name`)
     pca_dim : int
@@ -163,8 +166,8 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
     if pca_dim == 2:
         sns.scatterplot(
             x="PC1", y="PC2",
-            hue=label_col,
-            palette=sns.color_palette("Set2", len(df[label_col].unique())),
+            hue=true_label_col,
+            palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
             data=df,
             legend="full",
             alpha=0.3
@@ -173,13 +176,13 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
             plt.savefig(save_plot_path, bbox_inches='tight')
     elif pca_dim == 3:
         ax = plt.figure(figsize=(10,10)).gca(projection='3d')
-        if label_col is None:
+        if true_label_col is None:
             ax.scatter(df['PC1'], df['pa-2'], df['PC3']) 
         else:
-            for s in df[label_col].unique():
-                ax.scatter(df['PC1'][df[label_col]==s], 
-                        df['PC2'][df[label_col]==s], 
-                        df['PC3'][df[label_col]==s], 
+            for s in df[true_label_col].unique():
+                ax.scatter(df['PC1'][df[true_label_col]==s], 
+                        df['PC2'][df[true_label_col]==s], 
+                        df['PC3'][df[true_label_col]==s], 
                         label=s)
         ax.legend()
         ax.set_xlabel('PC1')
@@ -195,25 +198,50 @@ def vis_pca(df: pd.DataFrame, target_col: str, label_col: str, pca_dim: int, sho
     return df
 
 
-def vis_cm(df, label_col, predicted_col, save_path):
-    y_true = df[label_col]
+
+def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_plot_path: str):
+    """Create a heatmap using predicted column, ground truth label column.
+    cr == classification report
+    cm == confusion matrix
+
+    Example code :
+    df_cr, cm = vis_cm(df, 'real', 'predicted', './result/heatmap_of_confusion_matrix.png')
+    vis_cm(df, 'ground_truth', 'predicted_y', None)
+
+    Parameters
+    ----------
+    df : pd.DataFrame 
+        pd.Dataframe object includes true label column and predicted_label column. 
+    true_label_col : str
+        column name which has ground_truth_labels.
+    predicted_col : str
+        column name which has predicted labels.
+    save_plot_path: str
+        Enter the full path to save result image. (or enter None)
+    """
+    y_true = df[true_label_col]
     y_pred = df[predicted_col]
     classes = y_true.unique()
     try:
-        confusion_report = classification_report(y_true, y_pred, output_dict=True)
-        df_cr = pd.DataFrame(confusion_report)
+        cr = classification_report(y_true, y_pred, output_dict=True) # create classification report
+        df_cr = pd.DataFrame(cr)
     except Exception as e:
         print(e)
-    cm = confusion_matrix(df[label_col], df[predicted_col])
+    
+    try:
+        cm = confusion_matrix(df[true_label_col], df[predicted_col])
+    except Exception as e: 
+        print(e)
 
     plt.title("Confusion Metirx: True Label vs Predicted Label", fontsize =13, pad=20)
     sns.set_style("dark")
     ax = sns.heatmap(cm, cmap="crest", fmt=".3g", annot=True, xticklabels=classes, yticklabels=classes)
     ax.set(xlabel='common xlabel', ylabel='common ylabel')
-    plt.xlabel("Predicted", labelpad=20)
-    plt.ylabel("True Label", labelpad=20)
+    plt.xlabel("Predicted", labelpad=10)
+    plt.ylabel("True Label", labelpad=10)
     plt.show()
-    plt.savefig(save_path, dpi=300, bbox_inches = "tight")
+    if save_plot_path is not None:
+        plt.savefig(save_plot_path, dpi=300, bbox_inches = "tight")
     plt.clf()
     
     return df_cr, cm
