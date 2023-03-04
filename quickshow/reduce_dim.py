@@ -13,6 +13,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+import warnings
+warnings.filterwarnings("ignore")
 
 
 def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
@@ -37,7 +39,7 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
     data_subset = df[target_col].values
     raveled_data_subset = [x.ravel() for x in data_subset]
 
-    tsne = TSNE(n_components=2, verbose=10, perplexity=3, n_iter=500)
+    tsne = TSNE(n_components=2)
     df_tsne_2d = tsne.fit_transform(raveled_data_subset)
     df['tsne-2d-1'] = df_tsne_2d[:,0]
     df['tsne-2d-2'] = df_tsne_2d[:,1]
@@ -83,7 +85,7 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
     data_subset = df[target_col].values
     raveled_data_subset = [x.ravel() for x in data_subset]
 
-    tsne = TSNE(n_components=3, verbose=10, perplexity=3, n_iter=300)
+    tsne = TSNE(n_components=3)
     df_tsne_3d = tsne.fit_transform(raveled_data_subset)
     df['tsne-3d-1'] = df_tsne_3d[:,0]
     df['tsne-3d-2'] = df_tsne_3d[:,1]
@@ -159,9 +161,8 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
             hue=true_label_col,
             palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
             data=df,
-            legend="full",
-            alpha=0.3
-        )
+            legend="full"
+            )
         if save_plot_path is not None:
             plt.savefig(save_plot_path, bbox_inches='tight')
     elif pca_dim == 3:
