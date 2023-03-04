@@ -6,10 +6,10 @@
 ![Pypi Version](https://img.shields.io/pypi/v/quickshow.svg)
 ![Code convention](https://img.shields.io/badge/code%20convention-pep8-violet)
 
-Quick-Show is a package that allows you to easily and quickly draw plots. <br>
-Quick Show is an abstraction using popular libraries such as sklearn and matplotlib, so it is very light and convenient. <br><br>
+Quick-Show helps you draw plots quickly and easily. <br>
+It is an abstraction using popular libraries such as Scikit-Learn and MatPlotLib, thus it is very light and convenient. <br><br>
 `Note`: Quick-Show is sub-modules of other packages to manage quickshow more lightly and use more widly. 
-*This is a project under development as a submodule. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.*
+*This is a project under development. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.*
 
 <br>
 
@@ -23,6 +23,7 @@ Quick Show is an abstraction using popular libraries such as sklearn and matplot
 ## 1  Related to dimensionality reduction
 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe. 
 Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
+
 1) `vis_tsne2d`: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
 2) `vis_tsne3d`: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
 3) `vis_pca`: Simple visuallization of Principal Component Analysis (PCA) 
@@ -30,21 +31,25 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 <br>
 
 ## 2  Related to classification model evaluation. 
-1) `vis_cm`: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
-2) `get_total_cr_df` 
-3) `vis_multi_plot` 
+Later these functions are encapsulated into classes. <br>
+
+3) `vis_cm`: Visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
+4) `get_total_cr_df`: When the confusion matrix dataframe created by the vis_cm function is saved as csv, the directory of the folder where these csv files exist is received as input and the confusion matrices of all csv files are merged into a single data frame. <br> 
+5) `vis_multi_plot`: It takes the return dataframe of get_total_cr_df as input and draws a nice plot. However, if you want to use this function, please note that the suffix of the multiple csv files input to get_total_cr_df must be exp and an integer, such as `exp3`, and the integers must be `contiguous`.
 
 <br>
 
 
 ## 3  Related to clustering. 
-1) `vis_cluster_plot`: <br>
+
+6) `vis_cluster_plot`: Produces a plot to see how spread out the actual label values ​​are within the clusters.<br>
 
 <br>
 
 ## 4  Utils 
-1) `find_all_files`: <br>
 
+7) `find_all_files`: If you enter the top folder path as an auxiliary function, it returns a list of files including keywords while recursively searching subfolders. This is implemented with the glob package.<br>
+8) `rcparam`: It simply shows some rcparams method in matploblib. Check by calling `qs.rcparam?`
 <br><br><Br><Br><Br>
 
 # Examples
