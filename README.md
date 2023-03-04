@@ -1,24 +1,32 @@
 
 # Quick-Show
 
-[![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-v2.0%20adopted-green.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-v2.0%20adopted-blue.svg)](code_of_conduct.md)
 [![Python Version](https://img.shields.io/badge/python-3.6%2C3.7%2C3.8-blue.svg)](code_of_conduct.md)
 ![Pypi Version](https://img.shields.io/pypi/v/quickshow.svg)
-![Code convention](https://img.shields.io/badge/code%20convention-pep8-violet)
+![Code convention](https://img.shields.io/badge/code%20convention-pep8-blue)
 
 Quick-Show helps you draw plots quickly and easily. <br>
 It is an abstraction using popular libraries such as Scikit-Learn and MatPlotLib, thus it is very light and convenient. <br><br>
 `Note`: Quick-Show is sub-modules of other packages to manage quickshow more lightly and use more widly. 
 *This is a project under development. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.*
 
-<br>
+<br><Br>
 
 # Installation
   ```cmd
   $ pip install quickshow
   ```
-<br>
+<br><Br>
+
+# Tutorial Notebooks
+1. Main-tutorials: https://github.com/DSDanielPark/quick-show/blob/main/tutorial/tutorial.ipynb
+2. Sub-tutorial-folder: Tutorials for each function can be found in [this folder](https://github.com/DSDanielPark/quick-show/tree/main/tutorial). The tutorial is synchronized with the Python file name provided by QuickShow.
  
+<br>
+<Br>
+
+
 # Features
 ## 1  Related to dimensionality reduction
 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe. 
@@ -39,7 +47,6 @@ Later these functions are encapsulated into classes. <br>
 
 <br>
 
-
 ## 3  Related to clustering. 
 
 6) `vis_cluster_plot`: Produces a plot to see how spread out the actual label values ​​are within the clusters.<br>
@@ -50,7 +57,8 @@ Later these functions are encapsulated into classes. <br>
 
 7) `find_all_files`: If you enter the top folder path as an auxiliary function, it returns a list of files including keywords while recursively searching subfolders. This is implemented with the glob package.<br>
 8) `rcparam`: It simply shows some rcparams method in matploblib. Check by calling `qs.rcparam?`
-<br><br><Br><Br><Br>
+
+<Br><Br>
 
 # Examples
 ## Feature 1  <br>
@@ -95,6 +103,7 @@ Later these functions are encapsulated into classes. <br>
   - For more details, please check doc string.
   
   </details>
+
 <br>
 
 ## Feature 2 
@@ -145,6 +154,7 @@ Later these functions are encapsulated into classes. <br>
   - This function return pandas.DataFrame obejct of classification report and confusion metix as shown below.
   
   </details>
+
 <br>
 <br>
 <br>
@@ -152,11 +162,13 @@ Later these functions are encapsulated into classes. <br>
 # Use Case
 [1] [Korean-news-topic-classification-using-KO-BERT](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier): all plots were created through Quick-Show.
 
+<br>
+
 # References
 [1] Scikit-Learn https://scikit-learn.org <br>
 [2] Matplotlib https://matplotlib.org/
-<br>
 
+<br>
 <br>
 
 ### Contacts
