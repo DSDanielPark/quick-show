@@ -144,7 +144,8 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 <br>
 <br>
 
-
+# Use Case
+[1] [Korean-news-topic-classification-using-KO-BERT](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier): all plots were created through Quick-Show.
 
 # References
 [1] Scikit-Learn https://scikit-learn.org <br>
