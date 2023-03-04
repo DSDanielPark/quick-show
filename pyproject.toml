@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "quickshow"
-version = "0.1.5"
+version = "0.1.6"
 description = ""
 authors = ["parkminwoo <parkminwoo1991@gmail.com>"]
 readme = "README.md"
@@ -14,12 +14,12 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.6"
-pandas = "^1.5.3"
-seaborn = "^0.12.2"
-matplotlib = "^3.7.0"
-sklearn = "^0.0.post1"
-scikit-learn = "^1.2.1"
+python = "*"
+pandas = "*"
+seaborn = "*"
+matplotlib = "*"
+sklearn = "*"
+scikit-learn = "*"
 
 
 [build-system]
