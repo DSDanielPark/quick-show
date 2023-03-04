@@ -17,13 +17,13 @@ It is an abstraction using popular libraries such as Scikit-Learn and MatPlotLib
   ```cmd
   $ pip install quickshow
   ```
-<br><Br>
+<br>
 
-# Tutorial Notebooks
+# Tutorial
 1. Main-tutorials: https://github.com/DSDanielPark/quick-show/blob/main/tutorial/tutorial.ipynb
 2. Sub-tutorial-folder: Tutorials for each function can be found in [this folder](https://github.com/DSDanielPark/quick-show/tree/main/tutorial). The tutorial is synchronized with the Python file name provided by QuickShow.
  
-<br>
+
 <Br>
 
 
@@ -157,19 +157,14 @@ Later these functions are encapsulated into classes. <br>
 
 <br>
 <br>
-<br>
 
 # Use Case
 [1] [Korean-news-topic-classification-using-KO-BERT](https://github.com/DSDanielPark/fine-tuned-korean-BERT-news-article-classifier): all plots were created through Quick-Show.
-
-<br>
 
 # References
 [1] Scikit-Learn https://scikit-learn.org <br>
 [2] Matplotlib https://matplotlib.org/
 
-<br>
-<br>
 
 ### Contacts
 Project Owner(P.O): [Daniel Park, South Korea](https://github.com/DSDanielPark) 
