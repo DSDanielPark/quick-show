@@ -20,7 +20,7 @@ Quick Show is an abstraction using popular libraries such as sklearn and matplot
 <br>
  
 # Features
-## 1  Plots related to dimensionality reduction
+## 1  Related to dimensionality reduction
 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe. 
 Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
 1) `vis_tsne2d`: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
@@ -29,7 +29,7 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 
 <br>
 
-## 2  Plots related to classification model evaluation. 
+## 2  Related to classification model evaluation. 
 1) `vis_cm`: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
 2) `get_total_cr_df` 
 3) `vis_multi_plot` 
@@ -37,7 +37,7 @@ Create a scatter plot very quickly and easily by inputting a clean dataframe and
 <br>
 
 
-## 3  Plots related to clustering. 
+## 3  Related to clustering. 
 1) `vis_cluster_plot`: <br>
 
 <br>
