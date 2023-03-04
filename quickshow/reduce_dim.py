@@ -49,9 +49,8 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
         hue=true_label_col,
         palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
         data=df,
-        legend="full",
-        alpha=0.3
-    )
+        legend="full"
+        )
     if save_plot_path is not None:
         plt.show()
         plt.savefig(save_plot_path, bbox_inches='tight')
@@ -103,9 +102,6 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
     ax.set_xlabel('tsne-3d-1')
     ax.set_ylabel('tsne-3d-2')
     ax.set_zlabel('tsne-3d-3')
-    # ax.set(ylim=(-0, 30))
-    # ax.set(xlim=(-150, 30))
-    # ax.set(zlim=(-200, 50))
     ax.legend()
 
     if save_plot_path is not None:
