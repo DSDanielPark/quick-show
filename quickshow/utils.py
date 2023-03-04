@@ -14,12 +14,12 @@ def find_all_files(folder_path:str, include_word:str) -> list:
 
 
 def rcparam(**args):
+    """Some rcparam example
     plt.style.use('tableau-colorblind10')
     plt.rcParams["figure.figsize"] = (20,10)
     plt.rcParams['lines.linewidth'] = 4
     plt.rcParams['axes.grid'] = False 
     plt.rcParams['axes.facecolor'] = 'white'
-
-    return None
+    """
 
         
