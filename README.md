@@ -23,27 +23,27 @@ Quick Show is an abstraction using popular libraries such as sklearn and matplot
 ## 1  Plots related to dimensionality reduction
 2D or 3D t-SNE and PCA plots using specific columns of a refined dataframe. 
 Create a scatter plot very quickly and easily by inputting a clean dataframe and column names that do not have missing data. 
-1) `vis_tsne2d` function: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
-2) `vis_tsne3d` function: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
-3) `vis_pca` function: Simple visuallization of Principal Component Analysis (PCA) 
+1) `vis_tsne2d`: Simple visuallization of 2-dimensional t-distributed stochastic neighbor embedding <br>
+2) `vis_tsne3d`: Simple visuallization of 3-dimensional t-distributed stochastic neighbor embedding <br>
+3) `vis_pca`: Simple visuallization of Principal Component Analysis (PCA) 
 
 <br>
 
 ## 2  Plots related to classification model evaluation. 
-1) `vis_cm` function: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
-2) `get_total_cr_df` function
-3) `vis_multi_plot` function
+1) `vis_cm`: visuallization heatmap of confusion_matrix and return classification report dataframe. <br>
+2) `get_total_cr_df` 
+3) `vis_multi_plot` 
 
 <br>
 
 
 ## 3  Plots related to clustering. 
-1) `vis_cluster_plot` function: <br>
+1) `vis_cluster_plot`: <br>
 
 <br>
 
 ## 4  Utils 
-1) `find_all_files` function: <br>
+1) `find_all_files`: <br>
 
 <br><br><Br><Br><Br>
 
