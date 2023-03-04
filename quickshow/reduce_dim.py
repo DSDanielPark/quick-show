@@ -1,6 +1,4 @@
-"""
-A simple visualization class.
-Create and visualize dimensionally reduced pca and tsne columns through a specific column of clean dataframe.
+"""Create and visualize dimensionally reduced pca and tsne columns through a specific column of clean dataframe.
 
 Abbreviation
 =========== ========================================================
@@ -8,12 +6,8 @@ Shorthand    full name
 =========== ========================================================
 t-SNE        t-distributed Stochastic Neighbor Embedding
 PCA          Principal Component Analysis
-cr           classification report
-cm           confusion matrix
 =========== ========================================================
 """
-
-
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -143,6 +137,11 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
         Choose a dimension to visualize. (Enter 2 or 3 only)
     save_plot_path: str
         Enter the full path to save result image.
+
+    Returns
+    df : pd.DataFrame 
+        Dataframe contains PC columns.
+    -------
     """
     data_subset = df[target_col].values
     raveled_data_subset = [x.ravel() for x in data_subset]

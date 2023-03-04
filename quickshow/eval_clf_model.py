@@ -1,3 +1,13 @@
+"""Create classification report dataframe and show confusion matrix.
+
+Abbreviation
+=========== ========================================================
+Shorthand    full name
+=========== ========================================================
+cr           classification report
+cm           confusion matrix
+=========== ========================================================
+"""
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -58,7 +68,7 @@ def vis_cm(df: pd.DataFrame, true_label_col: str, predicted_col: str, save_cr_cs
     return df_cr, cm
 
 
-def get_total_cr_df(cm_csv_folder_path, include_word, save_path):
+def get_total_cr_df(cm_csv_folder_path: str, include_word: str, save_path: str) -> list:
     metric_df_list = find_all_files(cm_csv_folder_path, include_word)
     for i in range(len(metric_df_list)):
         if i == 0:
@@ -79,7 +89,7 @@ def get_total_cr_df(cm_csv_folder_path, include_word, save_path):
     return total_cr_df
 
 
-def vis_multi_plot(df, which_metirc, except_col, save_path):
+def vis_multi_plot(df: pd.DataFrame, which_metirc: str, except_col: str, save_path: str) -> pd.DataFrame:
     df = df[df['metric'] == which_metirc]
     df = df.sort_values(by='exp' ,ascending=False)
     for i, col in enumerate(df.columns):

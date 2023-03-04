@@ -1,12 +1,10 @@
 import seaborn as sns
+import pandas as pd
 import matplotlib.pyplot as plt
+sns.set() 
 
 
-sns.set()  # use Seaborn styles
-plt.rcParams["figure.figsize"] = (16,10)
-
-
-def vis_cluster_plot(df, cluster_col, label_col, save_path):
+def vis_cluster_plot(df: pd.DataFrame, cluster_col: str, label_col: str, save_path: str) -> pd.DataFrame:
     bin_list = [0]
     total = 0
     for i in range(16):
