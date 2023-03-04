@@ -2,7 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.ipynb
 
 # C extensions
 *.so
@@ -130,3 +129,4 @@ dmypy.json
 .pyre/
 
 /notebooks
+tutorial/reduce_dim.ipynb
