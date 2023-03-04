@@ -20,4 +20,6 @@ def rcparam(**args):
     plt.rcParams['axes.grid'] = False 
     plt.rcParams['axes.facecolor'] = 'white'
 
+    return None
+
         
