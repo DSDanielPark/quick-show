@@ -91,9 +91,6 @@ Later these functions are encapsulated into classes. <br>
   return_df = vis_pca(df, 'values', 'labels', 3, True, './save/fig4.png')
   ```
 
-  <details>
-  <summary> See output figure... </summary>
-
   ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig1.png)
   ![](https://github.com/DSDanielPark/quick-show/blob/main/quickshow/output/readme_fig2.png)
 
@@ -101,8 +98,6 @@ Later these functions are encapsulated into classes. <br>
   - If the label column does not exist, simply enter `None` as an argument.
   - For more details, please check doc string.
   
-  </details>
-
 <br>
 
 ## Feature 2 
@@ -133,8 +128,6 @@ Later these functions are encapsulated into classes. <br>
   df_cr, cm = vis_cm(df, 'real', 'predicted', 'vis_cm.csv', 'vis_cm.png')
   ```
 
-  <details>
-  <summary> See output... </summary>
 
   ```python
   print(df_cr)
@@ -152,7 +145,6 @@ Later these functions are encapsulated into classes. <br>
 
   - This function return pandas.DataFrame obejct of classification report and confusion metix as shown below.
   
-  </details>
 
 <br>
 <br>
