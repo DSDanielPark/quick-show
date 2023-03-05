@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="quickshow",
-    version="0.1.9",
+    version="0.1.10",
     author="parkminwoo",
     author_email="parkminwoo1991@gmail.com",
     description="Quick-Show provides simply but powerful insight plots",
