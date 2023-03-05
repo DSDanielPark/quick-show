@@ -1,4 +1,3 @@
-
 # Quick-Show
 
 [![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-v2.0%20adopted-black.svg)](code_of_conduct.md)
@@ -167,7 +166,5 @@ Later these functions are encapsulated into classes. <br>
 
 
 ### Contacts
-Project Owner(P.O): [Daniel Park, South Korea](https://github.com/DSDanielPark) 
-e-mail parkminwoo1991@gmail.com <br>
 Maintainers: [Daniel Park, South Korea](https://github.com/DSDanielPark) 
 e-mail parkminwoo1991@gmail.com
