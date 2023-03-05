@@ -13,11 +13,18 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+from matplotlib import get_backend
 import warnings
 warnings.filterwarnings("ignore")
 
+# show_kw=True
+# if show_kw:
+#     curr_backend = get_backend()
+#     plt.switch_backend("Agg") #Switch to non-Gui, preventing plots being displayed
+#     warnings.filterwarnings("ignore", "Matplotlib is currently using agg")
 
-def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
+
+def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a 2d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
 
     Example code:
@@ -32,7 +39,9 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
         Data column name to process pca included in data frame.
     true_label_col : str
         Label column name to be used for visualization if target_col has different labels.
-        Enter None if label is missing or identical. (`None` or `string of column name`)
+        Enter None if label is missing or identical. (None or 'string of column name')
+    show_off: bool
+        If you want to hide plot when function called, use True. (True, False)
     save_plot_path: str
         Enter the full path to save result image.
     """
@@ -43,7 +52,6 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
     df_tsne_2d = tsne.fit_transform(raveled_data_subset)
     df['tsne-2d-1'] = df_tsne_2d[:,0]
     df['tsne-2d-2'] = df_tsne_2d[:,1]
-    
     sns.scatterplot(
         x="tsne-2d-1", y="tsne-2d-2",
         hue=true_label_col,
@@ -52,16 +60,14 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
         legend="full"
         )
     if save_plot_path is not None:
-        plt.show()
         plt.savefig(save_plot_path, bbox_inches='tight')
-    if show_plot:
-        plt.show()
-    plt.clf()
+    if show_off:
+        plt.switch_backend("Agg")
     
     return df
 
 
-def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
+def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a 3d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
 
     Example code:
@@ -78,6 +84,8 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
     true_label_col : str
         Label column name to be used for visualization if target_col has different labels.
         Enter None if label is missing or identical. (`None` or `string of column name`)
+    show_off: bool
+        If you want to hide plot when function called, use True. (True, False)
     save_plot_path: str
         Enter the full path to save result image.
     """
@@ -105,16 +113,14 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_plot
     ax.legend()
 
     if save_plot_path is not None:
-        plt.show()
         plt.savefig(save_plot_path, bbox_inches='tight')
-    if show_plot:
-        plt.show()
-    plt.clf()
+    if show_off:
+        plt.switch_backend("Agg")
 
     return df
         
 
-def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int, show_plot: bool, save_plot_path: str) -> pd.DataFrame:
+def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int, show_off: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a pc columns through sklearn.decomposition and simply visualize it.
 
     Example code :
@@ -133,6 +139,8 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
         Enter None if label is missing or identical. (`None` or `string of column name`)
     pca_dim : int
         Choose a dimension to visualize. (Enter 2 or 3 only)
+    show_off: bool
+        If you want to hide plot when function called, use True. (True, False)
     save_plot_path: str
         Enter the full path to save result image.
 
@@ -159,8 +167,9 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
             data=df,
             legend="full"
             )
+        plt.title('PCA 2DIM')
         if save_plot_path is not None:
-            plt.savefig(save_plot_path, bbox_inches='tight')
+            plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
     elif pca_dim == 3:
         ax = plt.figure(figsize=(10,10)).gca(projection='3d')
         if true_label_col is None:
@@ -176,11 +185,9 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
         ax.set_ylabel('PC2')
         ax.set_zlabel('PC3')
         if save_plot_path is not None:
-            plt.show()
-            plt.savefig(save_plot_path, bbox_inches='tight')
-    if show_plot:
-        plt.show()
-    plt.clf()
+            plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
+    if show_off:
+        plt.switch_backend("Agg")
 
     return df
 
