@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="quickshow",
-    version="0.1.7",
+    version="0.1.8",
     author="parkminwoo",
     author_email="parkminwoo1991@gmail.com",
     description="Quick-Show provides simply but powerful insight plots",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/DSDanielPark/quickshow",
+    url="https://github.com/DSDanielPark/quick-show",
     packages=setuptools.find_packages(),
     python_requires='>=3.6',
     install_requires=[
