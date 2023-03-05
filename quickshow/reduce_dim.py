@@ -54,7 +54,7 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off:
         legend="full"
         )
     if save_plot_path is not None:
-        plt.savefig(save_plot_path, bbox_inches='tight')
+        plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
     if show_off:
         plt.switch_backend("Agg")
     
@@ -107,7 +107,7 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off:
     ax.legend()
 
     if save_plot_path is not None:
-        plt.savefig(save_plot_path, bbox_inches='tight')
+        plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
     if show_off:
         plt.switch_backend("Agg")
 
