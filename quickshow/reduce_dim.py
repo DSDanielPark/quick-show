@@ -17,12 +17,6 @@ from matplotlib import get_backend
 import warnings
 warnings.filterwarnings("ignore")
 
-# show_kw=True
-# if show_kw:
-#     curr_backend = get_backend()
-#     plt.switch_backend("Agg") #Switch to non-Gui, preventing plots being displayed
-#     warnings.filterwarnings("ignore", "Matplotlib is currently using agg")
-
 
 def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a 2d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
