@@ -8,7 +8,7 @@
 Quick-Show helps you draw plots quickly and easily. <br>
 It is an abstraction using popular libraries such as Scikit-Learn and MatPlotLib, thus it is very light and convenient. <br><br>
 `Note`: Quick-Show is sub-modules of other packages to manage quickshow more lightly and use more widly. 
-*This is a project under development. With the end of the project, We plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.*
+*This is a project under development. With the end of the project, I plan to provide documents in major version 1 and sphinx. It is **NOT** recommended to use prior to major version 1.*
 
 <br><Br>
 
