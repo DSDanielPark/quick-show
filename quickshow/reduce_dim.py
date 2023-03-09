@@ -155,16 +155,20 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
     print('Explained variation per PC(Principal Component): {}'.format(pca.explained_variance_ratio_))
     
     if pca_dim == 2:
-        sns.scatterplot(
-            x="PC1", y="PC2",
-            hue=true_label_col,
-            palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
-            data=df,
-            legend="full"
-            )
-        plt.title('PCA 2D')
-        if save_plot_path is not None:
-            plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
+        if true_label_col is None:
+            ax.scatter(df['PC1'], df['pa-2']) 
+        else:
+            sns.scatterplot(
+                x="PC1", y="PC2",
+                hue=true_label_col,
+                palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
+                data=df,
+                legend="full"
+                )
+            plt.title('PCA 2D')
+            if save_plot_path is not None:
+                plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
+                
     elif pca_dim == 3:
         ax = plt.figure(figsize=(10,10)).gca(projection='3d')
         if true_label_col is None:
