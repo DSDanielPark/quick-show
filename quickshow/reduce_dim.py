@@ -54,6 +54,7 @@ def vis_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off:
         legend="full"
         )
     if save_plot_path is not None:
+        plt.title('T-SNE 3D')
         plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
     if show_off:
         plt.switch_backend("Agg")
@@ -161,7 +162,7 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
             data=df,
             legend="full"
             )
-        plt.title('PCA 2DIM')
+        plt.title('PCA 2D')
         if save_plot_path is not None:
             plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
     elif pca_dim == 3:
@@ -179,6 +180,7 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
         ax.set_ylabel('PC2')
         ax.set_zlabel('PC3')
         if save_plot_path is not None:
+            plt.title('PCA 3D')
             plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
     if show_off:
         plt.switch_backend("Agg")
