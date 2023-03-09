@@ -170,7 +170,7 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
                 plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
                 
     elif pca_dim == 3:
-        ax = plt.figure(figsize=(10,10)).gca(projection='3d')
+        ax = plt.axes(projection='3d')
         if true_label_col is None:
             ax.scatter(df['PC1'], df['pa-2'], df['PC3']) 
         else:
