@@ -118,8 +118,7 @@ def vis_tsne3d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off:
 def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int, show_off: bool, save_plot_path: str) -> pd.DataFrame:
     """Create a pc columns through sklearn.decomposition and simply visualize it.
 
-    Example code :
-    qs = QuickShow()
+    Example code:
     return_df = qs.vis_pca(embedded_df, 'target_col_embedding', 'category', 2, True, './result/fig1.png')
     return_df = qs.vis_pca(input_df, 'token_array', 'bin_number', 3, False, None)
 
@@ -191,3 +190,103 @@ def vis_pca(df: pd.DataFrame, target_col: str, true_label_col: str, pca_dim: int
 
     return df
 
+
+def joint_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off: bool, save_plot_path: str) -> pd.DataFrame:
+    """Create a 2d tsne columns through t-SNE(t-distributed Stochastic Neighbor Embedding) and simply visualize it.
+
+    Example code:
+    return_df = joint_tsne2d(df, 'values', 'labels', None, 'fig6.png')
+
+    Parameters
+    ----------
+    df : pd.DataFrame 
+        Data frame with target_col and true_label_col. 
+    target_col : str
+        Data column name to process pca included in data frame.
+    true_label_col : str
+        Label column name to be used for visualization if target_col has different labels.
+        Enter None if label is missing or identical. (None or 'string of column name')
+    show_off: bool
+        If you want to hide plot when function called, use True. (True, False)
+    save_plot_path: str
+        Enter the full path to save result image.
+    """
+    data_subset = df[target_col].values
+    raveled_data_subset = [x.ravel() for x in data_subset]
+
+    tsne = TSNE(n_components=2)
+    df_tsne_2d = tsne.fit_transform(raveled_data_subset)
+    df['tsne-2d-1'] = df_tsne_2d[:,0]
+    df['tsne-2d-2'] = df_tsne_2d[:,1]
+    sns.jointplot(
+        x="tsne-2d-1", y="tsne-2d-2",
+        hue=true_label_col,
+        palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
+        data=df,
+        legend="full"
+        )
+    if save_plot_path is not None:
+        plt.title('T-SNE 3D')
+        plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
+    if show_off:
+        plt.switch_backend("Agg")
+    
+    return df
+
+
+
+def joint_pca2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off: bool, save_plot_path: str) -> pd.DataFrame:
+    """Create a pc columns through sklearn.decomposition and simply visualize it and use seaborn.jointplot 
+
+    Example code:
+    return_df = qs.joint_pca2d(df, 'values', 'labels', None, 'fig5.png')
+
+    Parameters
+    ----------
+    df : pd.DataFrame 
+        Data frame with target_col and true_label_col. 
+    target_col : str
+        Data column name to process pca included in data frame.
+    true_label_col : str
+        Label column name to be used for visualization if target_col has different labels.
+        Enter None if label is missing or identical. (`None` or `string of column name`)
+    pca_dim : int
+        Choose a dimension to visualize. (Enter 2 or 3 only)
+    show_off: bool
+        If you want to hide plot when function called, use True. (True, False)
+    save_plot_path: str
+        Enter the full path to save result image.
+
+    Returns
+    df : pd.DataFrame 
+        Dataframe contains PC columns.
+    -------
+    """
+    data_subset = df[target_col].values
+    raveled_data_subset = [x.ravel() for x in data_subset]
+
+    pca = PCA(n_components=3)
+    pca_result = pca.fit_transform(raveled_data_subset)
+    df['PC1'] = pca_result[:,0]
+    df['PC2'] = pca_result[:,1] 
+    df['PC3'] = pca_result[:,2]
+    print('Explained variation per PC(Principal Component): {}'.format(pca.explained_variance_ratio_))
+    
+    if true_label_col is None:
+        sns.jointplot(df['PC1'], df['pa-2']) 
+    else:
+        sns.jointplot(
+            x="PC1", y="PC2",
+            hue=true_label_col,
+            palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
+            data=df,
+            legend="full"
+            )
+        plt.title('PCA 2D')
+        if save_plot_path is not None:
+            plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
+    
+    if show_off:
+        plt.switch_backend("Agg")
+
+    return df
