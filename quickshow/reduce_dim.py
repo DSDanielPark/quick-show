@@ -218,15 +218,19 @@ def joint_tsne2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_of
     df_tsne_2d = tsne.fit_transform(raveled_data_subset)
     df['tsne-2d-1'] = df_tsne_2d[:,0]
     df['tsne-2d-2'] = df_tsne_2d[:,1]
-    sns.jointplot(
-        x="tsne-2d-1", y="tsne-2d-2",
-        hue=true_label_col,
-        palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
-        data=df,
-        legend="full"
-        )
+    
+    if true_label_col is None:
+        sns.jointplot(df['tsne-2d-1'], df['tsne-2d-2']) 
+    else:
+        sns.jointplot(
+            x="tsne-2d-1", y="tsne-2d-2",
+            hue=true_label_col,
+            palette=sns.color_palette("Set2", len(df[true_label_col].unique())),
+            data=df,
+            legend="full"
+            )
     if save_plot_path is not None:
-        plt.title('T-SNE 3D')
+        plt.title('T-SNE 2D')
         plt.savefig(save_plot_path, dpi=300, bbox_inches='tight')
     if show_off:
         plt.switch_backend("Agg")
@@ -265,15 +269,14 @@ def joint_pca2d(df: pd.DataFrame, target_col: str, true_label_col: str, show_off
     data_subset = df[target_col].values
     raveled_data_subset = [x.ravel() for x in data_subset]
 
-    pca = PCA(n_components=3)
+    pca = PCA(n_components=2)
     pca_result = pca.fit_transform(raveled_data_subset)
     df['PC1'] = pca_result[:,0]
     df['PC2'] = pca_result[:,1] 
-    df['PC3'] = pca_result[:,2]
     print('Explained variation per PC(Principal Component): {}'.format(pca.explained_variance_ratio_))
     
     if true_label_col is None:
-        sns.jointplot(df['PC1'], df['pa-2']) 
+        sns.jointplot(df['PC1'], df['PC2']) 
     else:
         sns.jointplot(
             x="PC1", y="PC2",
